@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Joyas | Elegancia Atemporal</title>
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* --- VARIABLES Y RESET --- */
+        :root {
+            --color-primario: #1a1a1a; /* Negro elegante */
+            --color-secundario: #c9a96e; /* Dorado suave */
+            --color-fondo: #faf9f7; /* Blanco roto */
+            --color-texto: #333333;
+            --color-texto-claro: #777777;
+            --fuente-titulos: 'Cormorant Garamond', serif;
+            --fuente-cuerpo: 'Montserrat', sans-serif;
+            --sombra-suave: 0 10px 30px rgba(0,0,0,0.05);
+            --transicion: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--fuente-cuerpo);
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* --- HEADER Y NAVEGACIÓN --- */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            transition: var(--transicion);
+        }
+
+        .header-contenido {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-family: var(--fuente-titulos);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-primario);
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--color-secundario);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-menu a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-primario);
+            position: relative;
+            transition: var(--transicion);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-secundario);
+            transition: var(--transicion);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: var(--color-secundario);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-primario);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .hero-contenido {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-contenido h1 {
+            font-family: var(--fuente-titulos);
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-contenido p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: 300;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 45px;
+            background-color: var(--color-secundario);
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 2px solid var(--color-secundario);
+            transition: var(--transicion);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        /* --- SECCIÓN PRODUCTOS --- */
+        .productos {
+            padding: 100px 0;
+            background-color: var(--color-fondo);
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .titulo-seccion h2 {
+            font-family: var(--fuente-titulos);
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--color-primario);
+            margin-bottom: 15px;
+        }
+
+        .titulo-seccion .linea {
+            width: 60px;
+            height: 3px;
+            background-color: var(--color-secundario);
+            margin: 0 auto;
+        }
+
+        .grid-productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .producto-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--sombra-suave);
+            transition: var(--transicion);
+            text-align: center;
+            padding-bottom: 25px;
+        }
+
+        .producto-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .producto-imagen {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: var(--transicion);
+        }
+
+        .producto-card:hover .producto-imagen {
+            transform: scale(1.05);
+        }
+
+        .producto-info {
+            padding: 20px 20px 0;
+        }
+
+        .producto-info h3 {
+            font-family: var(--fuente-titulos);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-primario);
+            margin-bottom: 8px;
+        }
+
+        .producto-info .precio {
+            font-size: 1.1rem;
+            color: var(--color-secundario);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* --- SECCIÓN NOSOTROS --- */
+        .nosotros {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .nosotros-contenido {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .nosotros-imagen {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 20px 20px 0 var(--color-secundario);
+        }
+
+        .nosotros-texto h2 {
+            font-family: var(--fuente-titulos);
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--color-primario);
+            margin-bottom: 20px;
+        }
+
+        .nosotros-texto p {
+            color: var(--color-texto-claro);
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--color-primario);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h4 {
+            font-family: var(--fuente-titulos);
+            font-size: 1.5rem;
+            color: var(--color-secundario);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #cccccc;
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 2;
+            transition: var(--transicion);
+        }
+
+        .footer-col a:hover {
+            color: var(--color-secundario);
+            padding-left: 5px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            transition: var(--transicion);
+            color: white;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--color-secundario);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* --- MEDIA QUERIES (RESPONSIVE) --- */
+        @media (max-width: 992px) {
+            .nosotros-contenido {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .nosotros-imagen {
+                height: 400px;
+                box-shadow: 15px 15px 0 var(--color-secundario);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+                transition: var(--transicion);
+                box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-menu a {
+                font-size: 1.1rem;
+            }
+
+            .hero-contenido h1 {
+                font-size: 2.8rem;
+            }
+
+            .titulo-seccion h2 {
+                font-size: 2.2rem;
+            }
+
+            .nosotros-texto h2 {
+                font-size: 2.2rem;
+            }
+
+            .nosotros-imagen {
+                height: 300px;
+                box-shadow: 10px 10px 0 var(--color-secundario);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-contenido h1 {
+                font-size: 2.2rem;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 0.8rem;
+            }
+
+            .grid-productos {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="contenedor header-contenido">
+            <a href="#" class="logo">LUMINA<span>.</span></a>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Colección</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+        <div class="hero-contenido">
+            <h1>Elegancia Atemporal</h1>
+            <p>Descubre piezas únicas que cuentan tu historia</p>
+            <a href="#productos" class="btn">Ver Colección</a>
+        </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section class="productos" id="productos">
+        <div class="contenedor">
+            <div class="titulo-seccion">
+                <h2>Nuestra Colección</h2>
+                <div class="linea"></div>
+            </div>
+            <div class="grid-productos">
+                <!-- Producto 1 -->
+                <div class="producto-card">
+                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Anillo de Diamante" class="producto-imagen">
+                    <div class="producto-info">
+                        <h3>Anillo Aurora</h3>
+                        <p class="precio">$1,250</p>
+                    </div>
+                </div>
+                <!-- Producto 2 -->
+                <div class="producto-card">
+                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Collar de Oro" class="producto-imagen">
+                    <div class="producto-info">
+                        <h3>Collar Eterna</h3>
+                        <p class="precio">$980</p>
+                    </div>
+                </div>
+                <!-- Producto 3 -->
+                <div class="producto-card">
+                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Aretes de Perla" class="producto-imagen">
+                    <div class="producto-info">
+                        <h3>Aretes Perla</h3>
+                        <p class="precio">$450</p>
+                    </div>
+                </div>
+                <!-- Producto 4 -->
+                <div class="producto-card">
+                    <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pulsera de Plata" class="producto-imagen">
+                    <div class="producto-info">
+                        <h3>Pulsera Luna</h3>
+                        <p class="precio">$320</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section class="nosotros" id="nosotros">
+        <div class="contenedor">
+            <div class="nosotros-contenido">
+                <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Joyería Artesanal" class="nosotros-imagen">
+                <div class="nosotros-texto">
+                    <h2>Artesanía y Pasión</h2>
+                    <p>En Lumina Joyas, cada pieza es creada con dedicación y maestría por nuestros artesanos. Utilizamos solo los materiales más finos, desde oro de 18 quilates hasta diamantes de origen ético.</p>
+                    <p>Nuestra misión es simple: crear joyas que no solo adornen, sino que capturen momentos y emociones para toda la vida.</p>
+                    <a href="#contacto" class="btn" style="margin-top: 10px;">Contáctanos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contacto">
+        <div class="contenedor">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Lumina</h4>
+                    <p>Joyas que iluminan tu historia. Elegancia atemporal desde 1990.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#productos">Colección</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px; color: var(--color-secundario);"></i> Av. Principal 123, Ciudad</li>
+                        <li><i class="fas fa-phone" style="margin-right: 10px; color: var(--color-secundario);"></i> +34 123 456 789</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 10px; color: var(--color-secundario);"></i> info@luminajoyas.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Lumina Joyas. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT PARA MENÚ MÓVIL -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            // Cambiar icono
+            const icon = menuToggle.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>
